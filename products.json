@@ -4,7 +4,7 @@
   "name": "Coca-Cola Original 1.5 L",
   "brand": "Coca-Cola",
   "category": "Drinks",
-  "image_url": "images/coke.jpeg",
+  "image_url": "coke.jpeg",
   "barcode": "5449000133327"
 },
  {
@@ -12,21 +12,21 @@
   "name": "Iceland Still Water 2L",
   "brand": "Iceland",
   "category": "Drinks",
-  "image_url": "images/iceland.jpg"
+  "image_url": "iceland.jpg"
 },
   {
     "id": 3,
     "name": "Kellogg's Corn Flakes 500 g",
     "brand": "Kellogg's",
     "category": "Breakfast",
-    "image_url": "images/Kellogg.jpg"
+    "image_url": "Kellogg.jpg"
 },
 {
   "id": "mcd-hamburger-single",
   "name": "McDonald's Hamburger (Single)",
   "brand": "McDonald's",
   "category": "Fast Food",
-  "image_url": "images/Burger.jpg"
+  "image_url": "Burger.jpg"
 },
   {
     "id": 4,
@@ -40,13 +40,13 @@
     "name": "Dettol Surface Cleaner 750 ml",
     "brand": "Dettol",
     "category": "Household",
-    "image_url": "images/Dettol_Surface.jpg"
+    "image_url": "Dettol_Surface.jpg"
   },
   {
   "id": "next-tee-blue-m",
   "name": "Next Crew-Neck T-Shirt Blue M",
   "brand": "Next",
   "category": "Clothing",
-  "image_url": "images/Next.jpg"
+  "image_url": "Next.jpg"
 }
 ]

@@ -17,8 +17,14 @@ const STORE_SEARCH_URL = {
 
 /* ---------- Map common variants → canonical key -------- */
 const SHOP_ALIAS = {
-  McDonalds: "McDonalds",         // covers "McDonald", "McDonald's"
-  Next:      "Next"               // covers "NextPLC", "Nextjpg", etc.
+  McDonalds: "McDonalds",   // covers “McDonalds”
+  Mcdonalds: "McDonalds",   // covers “Mcdonalds” (lower‑case d)
+  Mcdonald:  "McDonalds",   // covers “Mcdonald”
+  "MCDONALDS":"McDonalds",  // just in case all‑caps appear
+
+  Next:      "Next",        // covers plain “Next”
+  Nextplc:   "Next",        // covers “NextPlc” / “Next PLC”
+  Nextjpg:   "Next"         // covers “Next jpg”
 };
 
 /* Return first word, stripped of punctuation, mapped via alias table */

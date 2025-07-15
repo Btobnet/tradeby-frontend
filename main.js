@@ -227,16 +227,16 @@ function renderCards(arr, pMap) {
                 )
               : (
                   (phys && modeFilter !== "online" && phys.lat && phys.lng)
-? `? `<a href="https://www.google.com/maps?q=${phys.lat},${phys.lng}" target="_blank" class="block">
-     <p class="text-sm text-green-600 font-semibold mt-3">
-       Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
-     </p>
-     <p class="text-sm text-gray-500 mt-0.5 underline">
-       ${phys.shop}
-     </p>
-   </a>`
-   </p>`
-: ""
+  ? `<a href="https://www.google.com/maps?q=${phys.lat},${phys.lng}" target="_blank" class="block">
+       <p class="text-sm text-green-600 font-semibold mt-3">
+         Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
+       </p>
+       <p class="text-sm text-gray-500 mt-0.5 underline">
+         ${phys.shop}
+       </p>
+     </a>`
+  : ""
+                
   // non‑exclusive & no location ⇒ nothing here
                 )
           }

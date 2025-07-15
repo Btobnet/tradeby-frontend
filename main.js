@@ -205,11 +205,18 @@ function renderCards(arr, pMap) {
                 )
               : (
                   phys && modeFilter !== "online"
-                  ? `<p class="text-sm text-green-600 font-semibold mt-3">
-                       Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
-                     </p>
-                     <p class="text-sm text-gray-500 mt-0.5">${phys.shop}</p>`
-                  : ""  // non‑exclusive & no location ⇒ nothing here
+? `<p class="text-sm text-green-600 font-semibold mt-3">
+     Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
+   </p>
+   <p class="text-sm text-gray-500 mt-0.5">
+     <a href="${phys.url || (STORE_SEARCH_URL[phys.shop.split(' ')[0]] || '#') + encodeURIComponent(cleanName)}"
+        target="_blank"
+        class="text-blue-600 hover:underline">
+       ${phys.shop}
+     </a>
+   </p>`
+: ""
+  // non‑exclusive & no location ⇒ nothing here
                 )
           }
         </div>

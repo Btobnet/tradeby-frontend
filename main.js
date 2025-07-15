@@ -227,15 +227,14 @@ function renderCards(arr, pMap) {
                 )
               : (
                   phys && modeFilter !== "online"
-? `<p class="text-sm text-green-600 font-semibold mt-3">
-     Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
-   </p>
-   <p class="text-sm text-gray-500 mt-0.5">
-     <a href="${phys.url || (STORE_SEARCH_URL[canonicalShop(phys.shop)] || '#') + encodeURIComponent(cleanName)}"
-   target="_blank"
-   class="text-gray-600 hover:underline">
-  ${phys.shop}
-</a>
+? `? `<a href="https://www.google.com/maps?q=${phys.lat},${phys.lng}" target="_blank" class="block">
+     <p class="text-sm text-green-600 font-semibold mt-3">
+       Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
+     </p>
+     <p class="text-sm text-gray-500 mt-0.5 underline">
+       ${phys.shop}
+     </p>
+   </a>`
    </p>`
 : ""
   // non‑exclusive & no location ⇒ nothing here

@@ -1,0 +1,10 @@
+[
+  { "id": 1, "name": "Asda Online",          "lat": 51.5074, "lng": -0.1278, "type": "online"   },
+  { "id": 2, "name": "Tesco Express Barking", "lat": 51.5363, "lng": 0.0801,  "type": "physical" },
+  { "id": 3, "name": "Amazon UK",             "lat": 0,       "lng": 0,       "type": "online"   },
+  { "id": 4, "name": "Iceland",               "lat": 51.5402, "lng": 0.0813,  "type": "physical" },
+  { "id": 5, "name": "Sainsbury's Online",    "lat": 0,       "lng": 0,       "type": "online"   },
+  { "id": 6, "name": "Next",                  "lat":  0,      "lng":  0,      "type": "online"   },
+  { "id": 7,"name": "McDonald's",   "lat": 51.5407,  "lng": 0.0819,  "type": "physical"
+}
+]

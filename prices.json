@@ -1,0 +1,121 @@
+[
+  {
+    "product_id": "1",
+    "shop": "Tesco Express Barking",
+    "price": 1.50,
+    "url": "https://www.tesco.com/groceries/en-GB/search?query=Coca-Cola%201.5L",
+    "lat": 51.5363,
+    "lng": 0.0801
+  },
+  {
+    "product_id": "1",
+    "shop": "Asda Online",
+    "price": 1.45,
+    "url": "https://groceries.asda.com/"
+  },
+  {
+    "product_id": "1",
+    "shop": "Amazon UK",
+    "price": 1.70,
+    "url": "https://www.amazon.co.uk/s?k=coca+cola+1.5l"
+  },
+
+  {
+    "product_id": "2",
+    "shop": "Sainsbury's Online",
+    "price": 1.20,
+    "url": "https://www.sainsburys.co.uk/"
+  },
+  {
+    "product_id": "2",
+    "shop": "Iceland",
+    "price": 1.10,
+    "url": "https://www.iceland.co.uk/",
+    "lat": 51.5410,
+    "lng": 0.0821
+  },
+
+  {
+    "product_id": "3",
+    "shop": "Tesco Express Barking",
+    "price": 2.20,
+    "url": "https://www.tesco.com/",
+    "lat": 51.5363,
+    "lng": 0.0801
+  },
+  {
+    "product_id": "3",
+    "shop": "Asda Online",
+    "price": 2.05,
+    "url": "https://groceries.asda.com/"
+  },
+  {
+    "product_id": "3",
+    "shop": "Amazon UK",
+    "price": 2.50,
+    "url": "https://www.amazon.co.uk/s?k=corn+flakes+500g"
+  },
+
+  {
+    "product_id": "4",
+    "shop": "Tesco Express Barking",
+    "price": 4.10,
+    "url": "https://www.tesco.com/",
+    "lat": 51.5363,
+    "lng": 0.0801
+  },
+  {
+    "product_id": "4",
+    "shop": "Iceland",
+    "price": 3.95,
+    "url": "https://www.iceland.co.uk/",
+    "lat": 51.5410,
+    "lng": 0.0821
+  },
+  {
+    "product_id": "4",
+    "shop": "Amazon UK",
+    "price": 4.50,
+    "url": "https://www.amazon.co.uk/s?k=nescafe+200g"
+  },
+
+  {
+    "product_id": "5",
+    "shop": "Sainsbury's Online",
+    "price": 2.00,
+    "url": "https://www.sainsburys.co.uk/"
+  },
+  {
+    "product_id": "5",
+    "shop": "Iceland",
+    "price": 1.85,
+    "url": "https://www.iceland.co.uk/",
+    "lat": 51.5410,
+    "lng": 0.0821
+  },
+  {
+    "product_id": "5",
+    "shop": "Tesco Express Barking",
+    "price": 2.10,
+    "url": "https://www.tesco.com/",
+    "lat": 51.5363,
+    "lng": 0.0801
+  },
+
+  {
+  "product_id": "next-tee-blue-m",
+  "shop": "Next",
+  "price": 8.00,
+  "url": "https://www.next.co.uk/style/ts789456",
+  "lat": null,
+  "lng": null
+},
+{
+  "product_id": "mcd-hamburger-single",
+  "shop": "McDonald's",
+  "price": 1.49,
+  "url": "https://www.mcdonalds.com/gb/en-gb/product/hamburger.html",
+  "lat": 51.5407,
+  "lng": 0.0819
+}
+]

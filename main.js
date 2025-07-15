@@ -29,8 +29,8 @@ loadData();
 async function loadData() {
   try {
     const [prodRes, priceRes] = await Promise.all([
-      fetch("data/products.json"),
-      fetch("data/prices.json")
+      fetch("products.json"),
+      fetch("prices.json")
     ]);
     allProducts = await prodRes.json();
     prices      = await priceRes.json();

@@ -233,7 +233,7 @@ function renderCards(arr, pMap) {
    <p class="text-sm text-gray-500 mt-0.5">
      <a href="${phys.url || (STORE_SEARCH_URL[canonicalShop(phys.shop)] || '#') + encodeURIComponent(cleanName)}"
    target="_blank"
-   class="text-blue-600 hover:underline">
+   class="text-gray-600 hover:underline">
   ${phys.shop}
 </a>
    </p>`

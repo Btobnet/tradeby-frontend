@@ -273,8 +273,9 @@ function renderCards(arr, pMap) {
               if (modeFilter === "nearby" && !r.lat) return;
 
               const link = r.url ||
-                (STORE_SEARCH_URL[r.shop.split(" ")[0]] || "#") +
-                encodeURIComponent(cleanName);
+  (STORE_SEARCH_URL[canonicalShop(r.shop)] || "#") +
+  encodeURIComponent(cleanName);
+
 
               const mi = r.lat
                 ? `<span class="ml-4 text-sm text-blue-600">

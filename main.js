@@ -8,8 +8,24 @@ const STORE_SEARCH_URL = {
   Asda:       "https://groceries.asda.com/search/",
   Amazon:     "https://www.amazon.co.uk/s?k=",
   Sainsburys: "https://www.sainsburys.co.uk/gol-ui/SearchResults/",
-  Iceland:    "https://www.iceland.co.uk/search?q="
+  Iceland:    "https://www.iceland.co.uk/search?q=",
+
+  /* New stores */
+  Next:       "https://www.next.co.uk/search?w=",
+  McDonalds:  "https://www.mcdonalds.com/gb/en-gb/search?q="
 };
+
+/* ---------- Map common variants → canonical key -------- */
+const SHOP_ALIAS = {
+  McDonalds: "McDonalds",         // covers "McDonald", "McDonald's"
+  Next:      "Next"               // covers "NextPLC", "Nextjpg", etc.
+};
+
+/* Return first word, stripped of punctuation, mapped via alias table */
+function canonicalShop(name){
+  const first = name.split(" ")[0].replace(/[^A-Za-z0-9]/g, "");
+  return SHOP_ALIAS[first] || first;
+}
 
 /* ---------- 1. Globals -------------------------------- */
 let allProducts   = [];
@@ -209,11 +225,11 @@ function renderCards(arr, pMap) {
      Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
    </p>
    <p class="text-sm text-gray-500 mt-0.5">
-     <a href="${phys.url || (STORE_SEARCH_URL[phys.shop.split(' ')[0]] || '#') + encodeURIComponent(cleanName)}"
-        target="_blank"
-        class="text-blue-600 hover:underline">
-       ${phys.shop}
-     </a>
+     <a href="${phys.url || (STORE_SEARCH_URL[canonicalShop(phys.shop)] || '#') + encodeURIComponent(cleanName)}"
+   target="_blank"
+   class="text-blue-600 hover:underline">
+  ${phys.shop}
+</a>
    </p>`
 : ""
   // non‑exclusive & no location ⇒ nothing here

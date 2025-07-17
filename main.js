@@ -51,18 +51,21 @@ loadData();
 async function loadData() {
   try {
     const [prodRes, priceRes] = await Promise.all([
-      fetch("products.json"),
-      fetch("prices.json")
-    ]);
+  fetch("https://curly-xylophone-7vx956vgqw4xh65p-5000.app.github.dev/products"),
+  fetch("https://curly-xylophone-7vx956vgqw4xh65p-5000.app.github.dev/prices")
+]);
     allProducts = await prodRes.json();
     prices      = await priceRes.json();
 
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        pos => { userLocation = {lat: pos.coords.latitude, lng: pos.coords.longitude}; initUI(); },
-        ()  => initUI()
-      );
-    } else initUI();
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      initUI();
+    },
+    () => initUI()
+  );
+} else initUI();
 
   } catch (err) {
     console.error("Data load error:", err);
@@ -186,9 +189,13 @@ function renderCards(arr, pMap) {
 
     const low  = Math.min(...rows.map(r => r.price));
     const phys = nearestStore(prod.id);
+    console.log('phys:', phys);
+
 
     /* detect single‑shop product (exclusive) */
     const uniqueShops = [...new Set(rows.map(r => r.shop))];
+    console.log('uniqueShops:', uniqueShops);
+console.log('Canonical:', canonicalShop(uniqueShops[0]));
     const isExclusive = uniqueShops.length === 1;
 
     /* clean product name of any breaks */
@@ -215,37 +222,40 @@ function renderCards(arr, pMap) {
           </h2>
 
           ${
-            // ----- Nearby / shop block -----
-            isExclusive
-              ? (
-                  phys && phys.price   // exclusive with coordinates
-                  ? `<p class="text-sm text-green-600 font-semibold mt-3">
-     Nearby: ${isExclusive ? "" : `£${phys.price.toFixed(2)} • `}${phys.mile.toFixed(1)} mi
-   </p>
-   <p class="text-sm text-gray-500 mt-0.5">${uniqueShops[0]}</p>`
-                  : `<p class="text-sm text-gray-500 mt-0.5">${uniqueShops[0]}</p>` // exclusive, online‑only
-                )
-              : (
-                  (phys && modeFilter !== "online" && phys.lat && phys.lng)
-  ? `<a href="https://www.google.com/maps?q=${phys.lat},${phys.lng}" target="_blank" class="block">
-       <p class="text-sm text-green-600 font-semibold mt-3">
-         Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
-       </p>
-       <p class="text-sm text-gray-500 mt-0.5 underline">
-         ${phys.shop}
-       </p>
-     </a>`
-  : ""
-                
-  // non‑exclusive & no location ⇒ nothing here
-                )
-          }
+  isExclusive && phys && phys.price
+    ? `<div class="mt-3">
+         <a href="https://www.google.com/maps?q=${phys.lat},${phys.lng}" target="_blank" class="block">
+           <p class="text-sm text-green-600 font-semibold underline">
+             Nearby: ${phys.mile.toFixed(1)} mi
+           </p>
+         </a>
+         <a href="${(STORE_SEARCH_URL[canonicalShop(uniqueShops[0])] || '#') + encodeURIComponent(cleanName)}" target="_blank" class="block">
+           <p class="text-sm text-gray-500 mt-0.5 no-underline hover:text-blue-600 cursor-pointer">
+             ${uniqueShops[0]}
+           </p>
+         </a>
+       </div>`
+    : (phys && modeFilter !== "online" && phys.lat && phys.lng)
+      ? `<a href="https://www.google.com/maps?q=${phys.lat},${phys.lng}" target="_blank" class="block">
+           <p class="text-sm text-green-600 font-semibold mt-3">
+             Nearby: £${phys.price.toFixed(2)} • ${phys.mile.toFixed(1)} mi
+           </p>
+           <p class="text-sm text-gray-500 mt-0.5 no-underline">
+             ${phys.shop}
+           </p>
+         </a>`
+      : ""
+}
+
         </div>
 
-        <p class="absolute right-3 top-16 text-lg sm:text-xl
-             text-green-600 font-bold whitespace-nowrap">
-      £${low.toFixed(2)}
-    </p>
+        ${!isExclusive ? `
+  <p class="absolute right-3 top-16 text-lg sm:text-xl
+     text-green-600 font-bold whitespace-nowrap">
+    £${low.toFixed(2)}
+  </p>
+` : ""}
+
       </div>
     `;
 
@@ -355,4 +365,5 @@ async function startScanner(){
     overlay.remove();
   }
 }
+
 

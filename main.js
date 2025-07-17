@@ -50,27 +50,29 @@ loadData();
 /* 2 A. Fetch JSON + geolocate */
 async function loadData() {
   try {
-    const [prodRes, priceRes] = await Promise.all([
-  fetch("https://curly-xylophone-7vx956vgqw4xh65p-5000.app.github.dev/products"),
-  fetch("https://curly-xylophone-7vx956vgqw4xh65p-5000.app.github.dev/prices")
-]);
+    const prodRes = await fetch("https://c5742a9cf296.ngrok-free.app/api/products");
+const priceRes = await fetch("https://c5742a9cf296.ngrok-free.app/api/prices");
+
+
     allProducts = await prodRes.json();
-    prices      = await priceRes.json();
+    prices = await priceRes.json();
 
     if ("geolocation" in navigator) {
-  navigator.geolocation.getCurrentPosition(
-    pos => {
-      userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+          initUI();
+        },
+        () => initUI()
+      );
+    } else {
       initUI();
-    },
-    () => initUI()
-  );
-} else initUI();
-
+    }
   } catch (err) {
     console.error("Data load error:", err);
   }
 }
+
 
 /* 2 B. Build controls & listeners */
 function initUI() {
